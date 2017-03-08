@@ -184,6 +184,8 @@ module Faye
       hijack.write(buffer)
       hijack.flush
       hijack.close_write
+    rescue => e
+      error "#{e.message}\nBacktrace:\n#{e.backtrace * "\n"}"
     end
 
     def handle_websocket(request)
